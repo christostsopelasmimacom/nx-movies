@@ -1,7 +1,7 @@
 import styles from './index.module.css';
 import React, { useCallback, useEffect, useState } from 'react';
 import { Movie } from 'shared-types';
-
+import {MoviesList} from "../components/MoviesList/MoviesList";
 export const Index = ({
   q,
   movies: initialMovies,
@@ -26,14 +26,14 @@ export const Index = ({
   );
 
   return (
-    <div className="page">
+    <div className={styles.page}>
       <input
-        className="search"
+        className={styles.search}
         value={search}
         onChange={onSetSearch}
         placeholder="Search movie..."
       />
-      <MovieList movies={movie} />
+      <MoviesList movies={movie} />
     </div>
   );
 };
@@ -54,44 +54,5 @@ export async function getServerSideProps(context: any) {
     },
   };
 }
-
-interface MovieListProps {
-  movies: Movie[];
-}
-
-const MovieList = ({ movies }: MovieListProps) => (
-  <div className="movie-list">
-    {movies.map((movie, index) => (
-      <div className="movie-card" key={index}>
-        {movie.thumbnail && (
-          <img
-            className="movie-thumbnail"
-            src={movie.thumbnail}
-            alt={movie.title}
-            width={movie.thumbnail_width}
-            height={movie.thumbnail_height}
-          />
-        )}
-        <div className="movie-details">
-          <h3 className="movie-title">{movie.title} ({movie.year})</h3>
-          <p className="movie-cast">Cast: {movie.cast.join(', ')}</p>
-          <p className="movie-genres">
-            {movie.genres.map((genre, key) => (
-              <div key={key} className="genre-tag">
-                {genre}
-              </div>
-            ))}
-          </p>
-          {movie.extract && <p className="movie-extract">{movie.extract}</p>}
-          {movie.href && (
-            <a className="movie-link" href={movie.href}>
-              More Info
-            </a>
-          )}
-        </div>
-      </div>
-    ))}
-  </div>
-);
 
 export default Index;

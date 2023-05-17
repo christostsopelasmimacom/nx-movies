@@ -1,6 +1,5 @@
 import { AppProps } from 'next/app';
 import Head from 'next/head';
-import './styles.css';
 import Link from 'next/link';
 
 function CustomApp({ Component, pageProps }: AppProps) {
