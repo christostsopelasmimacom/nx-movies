@@ -2,7 +2,10 @@
   "name": "nx-movies",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "server": "nx run server:serve",
+    "client": "nx run client:serve"
+  },
   "private": true,
   "devDependencies": {
     "@nrwl/express": "^16.1.4",
