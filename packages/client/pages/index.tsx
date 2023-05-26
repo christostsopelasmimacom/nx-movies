@@ -13,6 +13,7 @@ export const Index = ({
   const [movie, setMovie] = useState<Movie[]>(initialMovies);
 
   useEffect(() => {
+    console.log('hey hey');
     fetch(`http://localhost:3333/search?q=${escape(search)}`)
       .then((resp) => resp.json())
       .then((data) => setMovie(data));
