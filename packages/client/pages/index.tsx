@@ -39,9 +39,9 @@ export const Index = ({
   );
 };
 
-export async function getServerSideProps(context: any) {
+export async function getStaticProps(context: any) {
   let movies = [];
-  if (context.query.q) {
+  if (context?.query?.q) {
     const res = await fetch(
       `http://localhost:3333/search?q=${escape(context.query.q)}`
     );
@@ -50,7 +50,7 @@ export async function getServerSideProps(context: any) {
 
   return {
     props: {
-      q: context.query.q ?? '',
+      q: context?.query?.q ?? '',
       movies,
     },
   };
