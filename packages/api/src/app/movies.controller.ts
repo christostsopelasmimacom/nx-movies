@@ -12,7 +12,6 @@ export class MoviesController {
 
     @Get('/search')
     searchMovies(@Query('q') query: string) {
-        console.log('test');
         return this.moviesService.searchMovies(query);
     }
 }
