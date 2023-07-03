@@ -1,7 +1,7 @@
 import styles from './index.module.css';
 import React, { useCallback, useEffect, useState } from 'react';
 import { Movie } from 'shared-types';
-import {MoviesList} from "../components/MoviesList/MoviesList";
+import { MoviesList } from '../components/MoviesList/MoviesList';
 export const Index = ({
   q,
   movies: initialMovies,
@@ -26,9 +26,9 @@ export const Index = ({
   );
 
   return (
-    <div className={styles.page}>
+    <div className="bg-dark-blue w-full text-center min-h-screen">
       <input
-        className={styles.search}
+        className="h-8 text-2xl my-4 mx-0 rounded-lg border-none text-center outline-none"
         value={search}
         onChange={onSetSearch}
         placeholder="Search movie..."
